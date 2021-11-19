@@ -3,8 +3,6 @@ module SessionsHelper
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
-    # Guard against session replay attacks.
-    # See https://bit.ly/33UvK0w for more.
     session[:session_token] = user.session_token
   end
 
@@ -47,4 +45,10 @@ module SessionsHelper
     reset_session
     @current_user = nil
   end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
 end
