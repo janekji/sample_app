@@ -39,3 +39,5 @@ db/test.*
 yarn-debug.log*
 .yarn-integrity
 sendgrid.env
+sendgrid.env
+sendgrid.env
