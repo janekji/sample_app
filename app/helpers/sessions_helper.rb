@@ -53,4 +53,10 @@ module SessionsHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
+    # Returns a session token to prevent session hijacking.
+  # We reuse the remember digest for convenience.
+  def session_token
+    remember_digest || remember
+  end
+
 end
