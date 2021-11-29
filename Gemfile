@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails',          '6.1.4.1'
+gem 'image_processing',           '1.9.3'
+gem 'mini_magick',                '4.9.5'
+gem 'active_storage_validations', '0.8.9'
 gem 'bcrypt',         '3.1.13'
 gem 'faker',          '2.11.0'
 gem 'sendgrid-ruby'
@@ -38,7 +41,8 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '1.2.3'
+  gem 'pg',         '1.2.3'
+  gem 'aws-sdk-s3', '1.87.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
